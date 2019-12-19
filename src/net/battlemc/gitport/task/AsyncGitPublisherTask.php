@@ -67,7 +67,7 @@ class AsyncGitPublisherTask extends AsyncTask
 		]);
 		curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
 		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
-		curl_setopt($curl, CURLOPT_URL, "https://api.github.com/repos/TobiasG-DE/BattleMC-BattleCore/releases/latest?access_token=" . $auth_token);
+		curl_setopt($curl, CURLOPT_URL, "https://api.github.com/repos/" . $repository->getAuthor() . "/" . $repository->getRepo() . "/releases/latest?access_token=" . $auth_token);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 		$res = curl_exec($curl);
 		if ($res == false) {
